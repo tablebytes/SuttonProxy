@@ -2,74 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Open Table FEC</title>
-    <style type = "text/css">
-      @font-face {
-        font-family: "Brandon";
-        src: 
-          url("fonts/BrandonText-Regular.ttf") format('truetype'),
-          url("fonts/BrandonText-Regular.woff") format('woff'),
-          url("fonts/BrandonText-Regular.woff2") format('woff2');
-      }
-    </style>
-    <style type = "text/css">
-      @font-face {
-        font-family: "Brandon-Medium";
-        src:
-          url("fonts/BrandonText-Medium.ttf") format('truetype'),
-          url("fonts/BrandonText-Medium.woff") format('woff'),
-          url("fonts/BrandonText-Medium.woff2") format('woff2');
-      }
-    </style>
-    <style type = "text/css">
-      @font-face {
-        font-family: "Brandon-Bold";
-        src:
-          url("fonts/BrandonText-Bold.ttf") format('truetype'),
-          url("fonts/BrandonText-Bold.woff") format('woff'),
-          url("fonts/BrandonText-Bold.woff2") format('woff2');
-      }
-    </style>
-    <style type = "text/css">
-      @font-face {
-        font-family: "Brandon-Light";
-        src:
-          url("fonts/BrandonText-Light.ttf") format('truetype'),
-          url("fonts/BrandonText-Light.woff") format('woff'),
-          url("fonts/BrandonText-Light.woff2") format('woff2');
-      }
-    </style>
   </head>
   <body>
-    <div id="reviews"></div>
-    <div id="photos"></div>
-    <div id="menu"></div>
-    <div id="sidebar"></div>
-    <div id="overview"></div>
+    <div id="proxy-container" class="proxy-container">
+      <div id="proxy-overview" class="proxy-overview"></div>
+      <div id="proxy-sidebar" class="proxy-sidebar"></div>
+      <div id="proxy-photos" class="proxy-photos"></div>
+      <div id="proxy-reviews" class="proxy-reviews"></div>
+      <div id="proxy-menu" class="proxy-menu"></div>
+    </div>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="http://localhost:3001/restaurants/1/bundle.js"></script> 
+    <script src="https://s3-us-west-1.amazonaws.com/open-tabs-reviews/bundle.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/opentabs-sidebar/bundle.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/opentabs-menu/bundle.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/photowheelopentabs/bundle/bundle.js"></script>
+
     <script>
       ReactDOM.render(
         React.createElement(Reviews),
-        document.getElementById('reviews')
+        document.getElementById('proxy-reviews')
       );
-      // ReactDOM.render(
-      //   React.createElement(Photos),
-      //   document.getElementById('photos')
-      // );
-      // ReactDOM.render(
-      //   React.createElement(Menu),
-      //   document.getElementById('menu')
-      // );
-      // ReactDOM.render(
-      //   React.createElement(Sidebar),
-      //   document.getElementById('sidebar')
-      // );
-      // ReactDOM.render(
-      //   React.createElement(Overview),
-      //   document.getElementById('overview')
-      // );
+      ReactDOM.render(
+        React.createElement(Photos),
+        document.getElementById('proxy-photos')
+      );
+      ReactDOM.render(
+        React.createElement(Menu),
+        document.getElementById('proxy-menu')
+      );
+      ReactDOM.render(
+        React.createElement(Sidebar),
+        document.getElementById('proxy-sidebar')
+      );
+      ReactDOM.render(
+        React.createElement(Overview),
+        document.getElementById('proxy-overview')
+      );
     </script>
   </body>
 </html>

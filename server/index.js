@@ -22,6 +22,56 @@ app.get('/api/restaurants/:id/reviews', (req, res) => {
     })
 });
 
+app.get('/api/restaurants/:id/photos', (req, res) => {
+  axios3002.get(`api/restaurants/${req.params.id}/photos`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      res.send(err);
+    })
+});
+
+app.get('/api/restaurants/:id/info', (req, res) => {
+  axios3003.get(`api/restaurants/${req.params.id}/info`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      res.send(err);
+    })
+});
+
+app.get('/api/restaurants/:id/overview', (req, res) => {
+  axios3003.get(`api/restaurants/${req.params.id}/overview`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      res.send(err);
+    })
+});
+
+app.get('/api/restaurants/:id/menus', (req, res) => {
+  axios3004.get(`api/restaurants/${req.params.id}/menus`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      res.send(err);
+    })
+});
+
+app.get('/api/restaurants/:id/menus/:menu', (req, res) => {
+  axios3004.get(`api/restaurants/${req.params.id}/menus/${req.params.menu}`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      res.send(err);
+    })
+});
+
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
