@@ -30,7 +30,7 @@
 .proxy-container {
   display: grid;
   grid-template-columns: 640px 320px;
-  grid-template-rows: 50px auto auto minmax(700px, auto) auto;
+  grid-template-rows: 0px auto auto minmax(700px, auto) auto;
   flex-direction: row-reverse;
   max-width: 992px;
   margin-left: auto;
@@ -60,4 +60,9 @@
 .proxy-reviews {
   grid-column: 1;
   grid-row: 5;
+}
+.main-image {
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: -50px;
 }

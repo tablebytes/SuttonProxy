@@ -4,10 +4,10 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const axios = require('axios');
-const axios3001 = axios.create({baseURL: 'http://localhost:3001'})
-const axios3002 = axios.create({baseURL: 'http://localhost:3002'})
-const axios3003 = axios.create({baseURL: 'http://localhost:3003'})
-const axios3004 = axios.create({baseURL: 'http://localhost:3004'})
+const axios3001 = axios.create({baseURL: 'http://54.161.138.158'})
+const axios3002 = axios.create({baseURL: 'http://18.188.49.19'})
+const axios3003 = axios.create({baseURL: 'http://35.165.224.178'})
+const axios3004 = axios.create({baseURL: 'http://34.219.173.69'})
 
 app.use(morgan('dev'));
 app.use('/restaurants/:id', express.static(path.join(__dirname, '../public')));
