@@ -3,9 +3,10 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require("body-parser");
+const request = require('request');
 const app = express();
 const port = process.env.PORT || 3000;
-const reviewRouter = require("./reviewRouter.js");
+// const reviewRouter = require("./reviewRouter.js");
 
 // const axios3002 = axios.create({baseURL: 'http://18.188.49.19'})
 // const axios3003 = axios.create({baseURL: 'http://35.165.224.178'})
@@ -17,7 +18,28 @@ app.use('/restaurants/:id', express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {extended : true}));
 
-app.use('/api/reviews/', reviewRouter);
+app.use('/api/restaurants/', (req, res)=>{
+  request(`http://18.224.157.232/api/restaurants/${req.url}`, (err, response, body) =>{
+    if(err){
+      res.status(404)
+      res.send(err);
+    } else {
+      res.send(JSON.parse(body));
+    }
+  })
+});
+
+
+app.use('/api/reviews/', (req, res)=>{
+  request(`http://13.56.50.90:3001/api/reviews${req.url}`, (err, response, body) =>{
+    if(err){
+      res.status(404)
+      res.send(err);
+    } else {
+      res.send(JSON.parse(body));
+    }
+  })
+});
 
 
 
