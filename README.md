@@ -1,2 +1,2 @@
-# proxy-angela
-angela's proxy server
+# Sutton's FoodByte Proxy Server
+
